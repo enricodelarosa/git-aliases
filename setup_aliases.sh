@@ -4,11 +4,21 @@
 # Usage: ./setup_aliases.sh [alias1 alias2 ...]
 # If no aliases are provided, all aliases are set up
 
+# Check the operating system
+OS=$(uname)
+
 # Install yq if not already installed
 if ! command -v yq &> /dev/null
 then
     echo "yq could not be found, installing..."
-    brew install yq
+    if [ "$OS" == "Darwin" ]; then # Mac OS
+        brew install yq
+    elif [ "$OS" == "MINGW64_NT-10.0" ]; then # Windows
+        winget install --id MikeFarah.yq
+    else
+        echo "Unsupported operating system. Please install yq manually."
+        exit 1
+    fi
 fi
 
 # Read aliases from YAML files and set them
