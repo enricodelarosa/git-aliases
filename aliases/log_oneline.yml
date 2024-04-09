@@ -1,0 +1,6 @@
+command: log --oneline
+alias: ll
+
+# $ git ll
+# 33559c5 (HEAD -> master) Another commit
+# 17646c1 test1

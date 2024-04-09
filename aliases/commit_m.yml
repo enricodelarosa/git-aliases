@@ -1,0 +1,6 @@
+command: commit -m
+alias: cm
+
+# $ git cm "A nice commit message"
+# [branch1 0baa729] A nice commit message
+#  1 file changed, 2 insertions(+)

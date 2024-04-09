@@ -1,0 +1,7 @@
+command: status -sb
+alias: st
+
+# $ git st
+# ## master
+#  M test2
+# ?? test3
