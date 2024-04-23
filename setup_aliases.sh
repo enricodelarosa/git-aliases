@@ -13,13 +13,16 @@ then
     echo "yq could not be found, installing..."
     if [ "$OS" == "Darwin" ]; then # Mac OS
         brew install yq
-    elif [ "$OS" == "MINGW64_NT-10.0" ]; then # Windows
+    elif [[ "$OS" == "MINGW64_NT"* ]]; then # Windows with MINGW64_NT prefix
         winget install --id MikeFarah.yq
     else
         echo "Unsupported operating system. Please install yq manually."
         exit 1
     fi
 fi
+
+# Reminder to restart terminal
+echo "Please restart your terminal to apply changes."
 
 # Read aliases from YAML files and set them
 if [ "$#" -eq 0 ]; then
